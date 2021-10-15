@@ -651,3 +651,44 @@ public class BaseViewModel : INotifyPropertyChanged
     }
 }
 ```
+
+## Splash Screen
+
+**SplashActivity.cs**
+
+```csharp
+[Activity(Label = "Finance Manager", Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true)]
+public class SplashActivity : AppCompatActivity
+{
+    static readonly string TAG = "X:" + typeof(SplashActivity).Name;
+
+    public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
+    {
+        base.OnCreate(savedInstanceState, persistentState);
+        Log.Debug(TAG, "SplashActivity.OnCreate");
+    }
+
+    // Launches the startup task
+    protected override void OnResume()
+    {
+        base.OnResume();
+        StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+    }
+}
+```
+
+**SplashScreen.xml**
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <color android:color="#F4E8C1"/>
+  </item>
+  <item android:gravity="center"
+        android:drawable="@drawable/splash_icon"
+        android:width="250dp"
+        android:height="220dp">
+  </item>
+</layer-list>
+```
