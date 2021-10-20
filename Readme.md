@@ -2,6 +2,19 @@
 
 ## Add before start
 
+**FinanceManger.csproj**
+
+```xml
+  <ItemGroup>
+    <Folder Include="Convertors\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+```
+
 **App.xaml**
 
 ```xml
